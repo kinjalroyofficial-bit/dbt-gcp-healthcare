@@ -9,6 +9,17 @@ sources:
     tables:
       - name: hcp_engagements
         description: "Raw HCP engagement table replicated from Postgres through Fivetran."
+
+        config:
+          loaded_at_field: _fivetran_synced
+          freshness:
+            warn_after:
+              count: 24
+              period: hour
+            error_after:
+              count: 48
+              period: hour
+
         columns:
           - name: engagement_id
             description: "Unique engagement identifier from the source system."
