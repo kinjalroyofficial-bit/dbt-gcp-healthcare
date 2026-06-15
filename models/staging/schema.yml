@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_hcp_engagements
+    description: "Cleaned staging model for HCP engagement data loaded from Postgres into BigQuery using Fivetran."
+
+    columns:
+      - name: engagement_id
+        description: "Unique identifier for each HCP engagement."
+        tests:
+          - not_null
+          - unique
+
+      - name: npi_number
+        description: "National Provider Identifier for the healthcare professional."
+        tests:
+          - not_null
+
+      - name: engagement_date
+        description: "Date on which the HCP engagement happened."
+        tests:
+          - not_null

@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+
 
 select
     engagement_channel,

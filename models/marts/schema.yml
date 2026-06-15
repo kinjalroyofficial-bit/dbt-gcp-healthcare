@@ -1,0 +1,119 @@
+version: 2
+
+models:
+  - name: mart_hcp_engagement_summary
+    description: "Mart summarizing HCP engagement performance by geography and specialty."
+    columns:
+      - name: hcp_state
+        description: "State where the HCP is located."
+        tests:
+          - not_null
+
+      - name: hcp_city
+        description: "City where the HCP is located."
+        tests:
+          - not_null
+
+      - name: hcp_specialty
+        description: "Medical specialty of the HCP."
+        tests:
+          - not_null
+
+      - name: total_engagements
+        description: "Total number of engagements for the state, city, and specialty combination."
+        tests:
+          - not_null
+
+      - name: unique_hcps
+        description: "Number of unique HCPs in the group."
+        tests:
+          - not_null
+
+      - name: avg_engagement_score
+        description: "Average engagement score for the group."
+        tests:
+          - not_null
+
+      - name: avg_duration_minutes
+        description: "Average engagement duration in minutes."
+        tests:
+          - not_null
+
+      - name: follow_up_required_count
+        description: "Number of engagements where follow-up is required."
+        tests:
+          - not_null
+
+
+  - name: mart_product_performance
+    description: "Mart summarizing HCP engagement performance by product."
+    columns:
+      - name: product_name
+        description: "Product discussed during the engagement."
+        tests:
+          - not_null
+          - unique
+
+      - name: total_engagements
+        description: "Total number of engagements for the product."
+        tests:
+          - not_null
+
+      - name: unique_hcps
+        description: "Number of unique HCPs engaged for the product."
+        tests:
+          - not_null
+
+      - name: avg_engagement_score
+        description: "Average engagement score for the product."
+        tests:
+          - not_null
+
+      - name: avg_duration_minutes
+        description: "Average engagement duration in minutes for the product."
+        tests:
+          - not_null
+
+      - name: follow_up_required_count
+        description: "Number of product engagements requiring follow-up."
+        tests:
+          - not_null
+
+
+  - name: mart_channel_performance
+    description: "Mart summarizing HCP engagement performance by channel and engagement type."
+    columns:
+      - name: engagement_channel
+        description: "Channel used for the engagement."
+        tests:
+          - not_null
+
+      - name: engagement_type
+        description: "Type of engagement performed with the HCP."
+        tests:
+          - not_null
+
+      - name: total_engagements
+        description: "Total number of engagements for the channel and type combination."
+        tests:
+          - not_null
+
+      - name: unique_hcps
+        description: "Number of unique HCPs engaged through the channel and type."
+        tests:
+          - not_null
+
+      - name: avg_engagement_score
+        description: "Average engagement score for the channel and type."
+        tests:
+          - not_null
+
+      - name: avg_duration_minutes
+        description: "Average engagement duration in minutes for the channel and type."
+        tests:
+          - not_null
+
+      - name: follow_up_required_count
+        description: "Number of channel/type engagements requiring follow-up."
+        tests:
+          - not_null

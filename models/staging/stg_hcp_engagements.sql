@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+
 
 select
     engagement_id,
@@ -26,6 +26,6 @@ select
 
     _fivetran_synced
 
-from `xyz-healthcare.public.hcp_engagements`
+from {{ source('public', 'hcp_engagements') }}
 
 where coalesce(_fivetran_deleted, false) = false
