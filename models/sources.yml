@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: public
+    database: xyz-healthcare
+    schema: public
+    description: "Raw data loaded from Postgres into BigQuery using Fivetran."
+
+    tables:
+      - name: hcp_engagements
+        description: "Raw HCP engagement table replicated from Postgres through Fivetran."
+        columns:
+          - name: engagement_id
+            description: "Unique engagement identifier from the source system."
+
+          - name: npi_number
+            description: "National Provider Identifier for the healthcare professional."
+
+          - name: hcp_state
+            description: "State where the HCP is located."
+
+          - name: hcp_first_name
+            description: "First name of the healthcare professional."
+
+          - name: created_at
+            description: "Datetime when the source record was created."
+
+          - name: organization_name
+            description: "Organization or healthcare institution associated with the HCP."
+
+          - name: engagement_date
+            description: "Date of the HCP engagement."
+
+          - name: follow_up_required
+            description: "Boolean flag indicating whether follow-up is required."
+
+          - name: hcp_specialty
+            description: "Medical specialty of the healthcare professional."
+
+          - name: product_name
+            description: "Product discussed during the engagement."
+
+          - name: hcp_last_name
+            description: "Last name of the healthcare professional."
+
+          - name: engagement_score
+            description: "Score assigned to the engagement."
+
+          - name: duration_minutes
+            description: "Duration of the engagement in minutes."
+
+          - name: engagement_channel
+            description: "Channel used for the engagement."
+
+          - name: engagement_type
+            description: "Type of engagement performed."
+
+          - name: hcp_city
+            description: "City where the HCP is located."
+
+          - name: _fivetran_deleted
+            description: "Fivetran metadata column indicating whether the source record was deleted."
+
+          - name: _fivetran_synced
+            description: "Fivetran metadata timestamp showing when the row was last synced."
