@@ -1,0 +1,24 @@
+{{ config(materialized='table') }}
+
+select
+    hcp_state,
+    hcp_city,
+    hcp_specialty,
+
+    count(*) as total_engagements,
+    count(distinct npi_number) as unique_hcps,
+
+    round(avg(engagement_score), 2) as avg_engagement_score,
+    round(avg(duration_minutes), 2) as avg_duration_minutes,
+
+    sum(case when follow_up_required then 1 else 0 end) as follow_up_required_count,
+
+    min(engagement_date) as first_engagement_date,
+    max(engagement_date) as latest_engagement_date
+
+from {{ ref('stg_hcp_engagements') }}
+
+group by
+    hcp_state,
+    hcp_city,
+    hcp_specialty
