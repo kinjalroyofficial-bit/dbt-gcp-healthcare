@@ -3,6 +3,14 @@ version: 2
 models:
   - name: mart_hcp_engagement_summary
     description: "Mart summarizing HCP engagement performance by geography and specialty."
+
+    tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - hcp_state
+                - hcp_city
+                - hcp_specialty
+
     columns:
       - name: hcp_state
         description: "State where the HCP is located."
