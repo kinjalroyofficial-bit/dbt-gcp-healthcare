@@ -1,0 +1,18 @@
+version: 2
+
+exposures:
+  - name: hcp_engagement_dashboard
+    label: HCP Engagement Dashboard
+    type: dashboard
+    maturity: medium
+    url: https://example.com/hcp-engagement-dashboard
+    description: >
+      Dashboard used by business users to monitor HCP engagement activity,
+      channel performance, engagement score categories, and follow-up requirements.
+
+    depends_on:
+      - ref('fct_hcp_engagements')
+
+    owner:
+      name: Analytics Team
+      email: analytics@example.com
