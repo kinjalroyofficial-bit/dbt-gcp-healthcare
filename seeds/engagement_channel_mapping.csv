@@ -1,0 +1,6 @@
+engagement_channel,channel_group,channel_priority
+Email,Digital,1
+Webinar,Digital,2
+Phone,Field,3
+In Person,Field,4
+Conference,Event,5
